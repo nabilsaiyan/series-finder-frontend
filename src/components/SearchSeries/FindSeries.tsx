@@ -23,6 +23,7 @@ function FindSeries() {
 
   const onSubmit: SubmitHandler<SearchFormData> = (data) => {
     const { query } = data;
+
     searchByKeyword(query)
       .then((result: Serie[]) => {
         setSeries(result);
@@ -51,6 +52,7 @@ function FindSeries() {
 
       <SerieList>
         {series.map((serie) =>
+          serie.poster_path &&
           !serie.poster_path.includes("originalnull") &&
           serie.overview !== "" ? (
             <SerieCard key={serie.id} serie={serie} />
