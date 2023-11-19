@@ -20,16 +20,16 @@ export const Nav = styled.nav`
   z-index: 999;
   width: 100%;
   background-color: #f1f1f1;
-  padding: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.315rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 50px;
+  min-height: 3.15rem;
   animation: ${descendAnimation} 0.3s ease;
 
   @media (max-width: 768px) {
-    padding: 15px 0;
+    padding: 1rem 0;
     flex-wrap: wrap;
   }
 `;
@@ -43,7 +43,7 @@ export const LogoContainer = styled.div`
 
   @media (max-width: 768px) {
     justify-content: left;
-    margin-left: 15px;
+    margin-left: 1rem;
   }
 `;
 
@@ -53,8 +53,8 @@ export const Logo = styled.img`
 `;
 
 export const Title = styled.h1`
-  font-size: 20px;
-  margin-left: 10px;
+  font-size: 1.25rem;
+  margin-left: 0.7rem;
   color: #333;
 `;
 
@@ -77,18 +77,18 @@ export const Ul = styled.ul`
 `;
 
 export const Li = styled.li`
-  margin-right: 10px;
+  margin-right: 0.625rem;
 
   @media (max-width: 768px) {
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-bottom: 0.625rem;
+    padding: 0.625rem;
   }
 
   a {
     color: #333;
     text-decoration: none;
     font-weight: bold;
-    padding: 10px;
+    padding: 0.625rem;
     border-radius: 4px;
     transition: background-color 0.3s ease, color 0.3s ease;
     transform: translateZ(0);
@@ -101,8 +101,8 @@ export const Li = styled.li`
     &.active {
       background-color: #ff6b6b;
       color: #fff;
-      margin-bottom: 2px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      margin-bottom: 0.125rem;
+      box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
     }
   }
 `;
@@ -111,22 +111,20 @@ export const StyledNavLink = styled(NavLink)`
   color: #333;
   text-decoration: none;
   font-weight: bold;
-  padding: 10px;
+  padding: 0.625rem;
   border-radius: 4px;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   transform: translateZ(0);
 
   &:hover {
-    background-color: #e1e1e1
+    background-color: #e1e1e1;
     color: #ff6b6b;
   }
 
   &.active {
     background-color: #ff6b6b;
     color: #fff;
-    margin-bottom: -2px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: -0.125rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
   }
 `;
