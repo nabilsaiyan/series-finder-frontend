@@ -19,8 +19,8 @@ export const CardContainer = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 300px;
   border-radius: 0.25rem 0.25rem 0 0;
   object-fit: cover;
   transition: transform 0.2s ease-in-out;
@@ -30,15 +30,21 @@ export const Image = styled.img`
   }
 `;
 
-export const Content = styled.div`
-  padding: 0.6rem;
-  transition: background-color 0.2s ease-in-out;
+export const CircularProgressWrapper = styled.div`
+  position: absolute;
+  top: 16.5rem;
+`;
+
+export const DetailsContainer = styled.div`
+  margin: 0;
+  padding: 1.5rem 0.6rem 0 0.6rem;
 `;
 
 export const Title = styled.h2`
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: bold;
-  margin: 0.6rem 0.6rem 0 0.6rem;
+  margin: 0;
+  padding: 0;
   transition: color 0.2s ease-in-out;
   color: #333;
   text-shadow: none;
@@ -49,8 +55,9 @@ export const Title = styled.h2`
 `;
 
 export const AirDate = styled.p`
-  font-size: 0.8rem;
-  margin: 0.3rem 0.6rem 0.6rem 0.6rem;
+  font-size: 0.7rem;
+  margin: 0;
+  padding: 0.3rem 0 0.6rem;
   color: #666;
   transition: opacity 0.2s ease-in-out;
 
