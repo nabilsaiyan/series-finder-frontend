@@ -56,6 +56,11 @@ export const Title = styled.h1`
   font-size: 1.25rem;
   margin-left: 0.7rem;
   color: #333;
+  font-family: "Russo One", sans-serif;
+
+  span {
+    color: #ff6b6b;
+  }
 `;
 
 export const Ul = styled.ul`

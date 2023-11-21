@@ -36,7 +36,9 @@ function Navbar() {
     <Nav>
       <LogoContainer onClick={handleLogoClick}>
         <Logo src="/logo.png" alt="Logo" />
-        <Title>MySERIES</Title>
+        <Title>
+          SERIES <span>FINDER</span>
+        </Title>
       </LogoContainer>
       <Ul>
         <Li>
