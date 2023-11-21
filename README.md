@@ -26,5 +26,9 @@ Contributions to this project are welcome. Feel free to open issues or submit pu
 ### Acknowledgements
 - **Series Finder Backend:** Created by [nabilsaiyan](https://github.com/nabilsaiyan). The Series Finder Frontend interacts with this backend to fetch series data.
 - **TMDB API:** Acknowledgment to the TMDB API for providing series data used in this project.
+
+### App Preview
+![App Page After Search with "Dragon" Keyword](https://raw.githubusercontent.com/nabilsaiyan/series-finder-frontend/main/public/screenshots/Capture1.png)
+
 ### License
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT)
