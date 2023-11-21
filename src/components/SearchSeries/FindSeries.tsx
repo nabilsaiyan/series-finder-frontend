@@ -1,64 +1,55 @@
-import { useForm, SubmitHandler } from "react-hook-form";
-
-import { useState } from "react";
-import {
-  SearchButton,
-  SearchContainer,
-  SearchForm,
-  SearchInput,
-  SerieList,
-} from "./FindSeriesStyles";
+import { useEffect, useState } from "react";
 import { Serie } from "../../types/Serie";
 import { searchByKeyword } from "../../data/seriesService";
 import SerieCard from "../SerieCard/SerieCard";
-
-interface SearchFormData {
-  query: string;
-}
+import { useParams } from "react-router-dom";
+import { SerieList } from "./FindSeriesStyles";
+import NoPage from "../Error/NoPage";
 
 function FindSeries() {
   const [series, setSeries] = useState<Serie[]>([]);
-  const { register, handleSubmit } = useForm<SearchFormData>();
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState<string>("");
 
-  const onSubmit: SubmitHandler<SearchFormData> = (data) => {
-    const { query } = data;
+  const { keyword } = useParams<{ keyword: string }>();
 
-    searchByKeyword(query)
+  useEffect(() => {
+    if (!keyword) {
+      setMessage("No keyword provided!");
+      return;
+    }
+
+    setMessage("");
+
+    searchByKeyword(keyword)
       .then((result: Serie[]) => {
+        if (result.length === 0) {
+          setMessage("The keyword doesn't match any series! 😐");
+        }
         setSeries(result);
-        setMessage("The keyword doesn't match any series ! 😐");
       })
       .catch((error) => {
         console.error(error);
         setMessage("Failed to fetch data");
       });
-  };
+  }, [keyword]);
 
   return (
     <>
-      <SearchContainer>
-        <SearchForm onSubmit={handleSubmit(onSubmit)}>
-          <SearchInput
-            type="text"
-            placeholder="Search series..."
-            {...register("query")}
-          />
-          <SearchButton type="submit">
-            <span className="material-symbols-outlined">search</span>
-          </SearchButton>
-        </SearchForm>
-      </SearchContainer>
-
-      <SerieList>
-        {series.map((serie) =>
-          serie.poster_path &&
-          !serie.poster_path.includes("originalnull") &&
-          serie.overview !== "" ? (
-            <SerieCard key={serie.id} serie={serie} />
-          ) : null
-        )}
-      </SerieList>
+      {message && <NoPage message={message} />}
+      {series.length > 0 && (
+        <SerieList>
+          {series
+            .filter(
+              (serie) =>
+                serie.poster_path &&
+                !serie.poster_path.includes("originalnull") &&
+                serie.overview !== ""
+            )
+            .map((serie) => (
+              <SerieCard key={serie.id} serie={serie} />
+            ))}
+        </SerieList>
+      )}
     </>
   );
 }

@@ -128,3 +128,44 @@ export const StyledNavLink = styled(NavLink)`
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
   }
 `;
+
+export const SearchForm = styled.form`
+  display: flex;
+  align-items: center;
+  max-width: 300px;
+  background-color: #fff;
+  border-radius: 7px;
+
+  &:focus-within {
+    box-shadow: 0 0 0 0.15rem #ff6b6b;
+  }
+`;
+
+export const SearchInput = styled.input`
+  padding: 0.625rem;
+  border: none;
+  font-size: 1.15rem;
+  width: 100%;
+  outline: none;
+  color: #333;
+  border-radius: 10px;
+  transition: border-color 0.3s ease;
+
+  @media (min-width: 768px) {
+    width: 400px;
+  }
+`;
+
+export const SearchButton = styled.button`
+  background: #fff;
+  color: #333;
+  border: none;
+  font-size: 1.15rem;
+  margin: 0.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    color: #ff6b6b;
+  }
+`;
