@@ -1,9 +1,13 @@
-import { MessageStyles } from '../../styles/MessageStyles';
+import { MessageStyles } from "../../styles/MessageStyles";
 
-function NoPage() {
+interface NoPageProps {
+  message?: string;
+}
+
+function NoPage({ message = "Page not found ! 😓" }: NoPageProps) {
   return (
     <MessageStyles>
-      <h1>Page not found ! 😓</h1>
+      <h1>{message}</h1>
     </MessageStyles>
   );
 }

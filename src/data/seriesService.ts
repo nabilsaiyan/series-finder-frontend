@@ -29,4 +29,27 @@ async function searchByKeyword(query: string): Promise<Serie[]> {
   }
 }
 
-export { searchByKeyword };
+async function getTrendingSeries(): Promise<Serie[]> {
+  const url = `${API_BASE_URL}/series/trending`;
+
+  try {
+    const response: AxiosResponse = await axios.get(url);
+    const matchingSeries: Serie[] = response.data.map((serie: Serie) => ({
+      ...serie,
+      poster_path: TMDB_API_IMG_BASE_URL + serie.poster_path,
+      backdrop_path: TMDB_API_IMG_BASE_URL + serie.backdrop_path,
+    }));
+
+    return matchingSeries;
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error("Failed to fetch API method: ", error.message);
+      throw new Error("Failed to fetch API method");
+    } else {
+      console.error("An unknown error occurred: ", error);
+      throw new Error("An unknown error occurred");
+    }
+  }
+}
+
+export { searchByKeyword, getTrendingSeries };
